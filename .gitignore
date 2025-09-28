@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+# Virtual environments
+.venv/
+venv/
+env/
+
+.env
+
+# Gmail credentials and tokens
+credentials.json
+token.pickle
+
+# OS files
+.DS_Store
+last_history_id.txt
+watch_response.json

@@ -1,0 +1,30 @@
+1. Set up Google Cloud Project and Pub/Sub Topic
+   - Create a Google Cloud project if not already done.
+   - Enable Pub/Sub API.
+   - Create a Pub/Sub topic for Gmail notifications.
+
+2. Prepare OAuth2 Credentials for Gmail API
+   - Create OAuth2 client credentials in Google Cloud Console.
+   - Download credentials.json and place it in your project folder.
+
+3. Implement Gmail Authentication and Token Management
+   - Use gmail_watch_setup.py to authenticate with Gmail API.
+   - Handle token storage and refresh (token.pickle).
+
+4. Set up Gmail Watch on Inbox
+   - Use Gmail API to watch the inbox label and send notifications to the Pub/Sub topic.
+
+5. Create Pub/Sub Subscription with Push Endpoint
+   - Create a Pub/Sub subscription that pushes messages to your Flask app endpoint /gmail_push.
+   - Configure authentication and endpoint URL.
+
+6. Implement Flask Endpoint to Receive Notifications
+   - Use gmail_push_notification_endpoint.py to receive and decode Pub/Sub push notifications.
+   - Validate and log incoming notifications.
+
+7. Test the Notification Flow
+   - Send test emails to Gmail inbox.
+   - Verify that notifications are received by the Flask endpoint.
+
+8. Handle Notification Processing
+   - Extend the Flask endpoint to trigger email retrieval and further processing.

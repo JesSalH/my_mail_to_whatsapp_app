@@ -1,0 +1,23 @@
+Gmail-to-WhatsApp Email Assistant
+
+This app is designed to act as a personal email assistant that connects Gmail with WhatsApp using Google Cloud services, a Flask backend, and a Large Language Model (LLM).
+
+How it works:
+1. Gmail Monitoring
+   - The app uses the Gmail API with Google Cloud Pub/Sub to monitor the inbox in real-time.
+   - When a new email arrives, Gmail sends a notification to the configured Pub/Sub topic.
+
+2. Notification Handling
+   - A Pub/Sub subscription pushes the notification to the Flask app endpoint (/gmail_push).
+   - The Flask app validates the notification and triggers the email retrieval process.
+
+3. Email Retrieval and Summarization
+   - The app fetches the full content of the new email.
+   - The email text is passed to an LLM (Large Language Model), which generates a concise summary of the email.
+
+4. WhatsApp Delivery
+   - The generated summary is delivered via WhatsApp to the user.
+   - This allows the user to quickly understand the content of incoming emails without opening Gmail.
+
+Overall Purpose:
+The system provides users with real-time, summarized updates of their Gmail inbox directly on WhatsApp. This saves time, reduces information overload, and ensures that users stay on top of important emails efficiently.

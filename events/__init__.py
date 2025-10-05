@@ -1,1 +1,1 @@
-from .events import event_bus, NEW_EMAILS_ARRIVED, NewEmailsArrivedEvent
+from .events import NewEmailsArrivedEvent

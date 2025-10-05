@@ -11,8 +11,12 @@ class Notifier(ABC):
 
 class MockNotifier(Notifier):
     def notify_new_messages(self, count: int) -> None:
+        print(" MOCK NOTIFIER REACHED, notify_new_messages -> with count:", count)
         print(f"[MockNotifier] {count} new email(s) received.")
+
     def deliver_summaries(self, summaries: List[Dict[str, Any]]) -> None:
+        print("MOCK NOTIFIER REACHED, deliver_summaries -> with summaries:", summaries)
+        print(f"[MockNotifier] Delivering {len(summaries)} summaries:")
         for summary in summaries:
             print(f"[MockNotifier] Summary for email {summary['id']}: {summary['summary']}")
 
@@ -20,9 +24,10 @@ class MockNotifier(Notifier):
 class ConsoleNotifier(Notifier):
     """Console-based implementation for development/testing."""
     def notify_new_messages(self, count: int) -> None:
-        print(f"{count} new email(s) received.")
+        print(f"WE REACHED THE CONSOLE NOTIFIER -> {count} new email(s) received.")
 
     def deliver_summaries(self, summaries: List[Dict[str, Any]]) -> None:
+        print(f"We have a total of {len(summaries)} summaries to deliver:")
         for summary in summaries:
             print(f"Summary for email {summary['id']}: {summary['summary']}")
 
